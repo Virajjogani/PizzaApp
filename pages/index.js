@@ -5,7 +5,6 @@ import PizzaList from "../components/PizzaList";
 import styles from "../styles/Home.module.css";
 import axios from 'axios'
 export default function Home({ pizzalist }) {
-  console.log("🚀 ~ file: index.js:8 ~ Home ~ pizzalist", pizzalist)
   return (
     <div className={styles.container}>
       <Head>
