@@ -1,7 +1,7 @@
 import Product from "../../../utils/models/Product";
 import dbConnect from "../../../utils/mongo";
 
-export default async function handler(req, res) {
+export default async function handler(req, res) {   
     const { method } = req;
 
     dbConnect()
