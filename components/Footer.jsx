@@ -10,41 +10,42 @@ const Footer = () => {
       <div className={styles.item}>
         <div className={styles.card}>
           <h2 className={styles.motto}>
-            OH YES, WE DID.THE LAMA PIZZA, WELL BAKED SLICE OF PIZZA.
+            OH YES, WE DID.THE LA PIZZA, WELL BAKED SLICE OF PIZZA.
           </h2>
         </div>
         <div className={styles.card}>
           <h1 className={styles.title}>FIND OUR RESTAURANTS</h1>
           <p className={styles.text}>
-            1654 R. Don Road #304.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1010
+            Ground Floor Shop No. G 74 & G 75, Avadh Viceroy Varachha Road,
+            Kamrej Road, Sarthana Jakat Naka,
+            <br /> Surat, Gujarat 395006
+            <br /> +91 999851 99985
           </p>
           <p className={styles.text}>
-            2356 K. Laquie Rd #235.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1011
+            G-7, Helios shopping Nr Galaxy Circle, Green City Rd, Pal Gam
+            <br /> Surat, Gujarat 394510
+            <br /> +91 99982 99982
           </p>
           <p className={styles.text}>
-            1614 E. Erwin St #104.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1012
+            97, Om Square, beside KP House, BRTS, Vesu Canal Rd, Bhatar,
+            <br /> Surat, Gujarat 395007
+            <br /> +91 99983 99983
           </p>
           <p className={styles.text}>
-            1614 W. Caroll St #125.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1013
+            Ground Prime Shoppers, 41, Udhana - Magdalla Rd, Vesu,
+            <br /> Surat, Gujarat 395007
+            <br /> +91 99984 99984
           </p>
         </div>
         <div className={styles.card}>
           <h1 className={styles.title}>WORKING HOURS</h1>
           <p className={styles.text}>
             MONDAY UNTIL FRIDAY
-            <br /> 9:00 – 22:00
+            <br /> 9:00 – 23.30
           </p>
           <p className={styles.text}>
             SATURDAY - SUNDAY
-            <br /> 12:00 – 24:00
+            <br /> 24*7 Hours
           </p>
         </div>
       </div>
