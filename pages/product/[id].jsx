@@ -63,7 +63,7 @@ const Product = ({ pizza }) => {
         <h3 className={styles.choose}>Choose additional ingredients</h3>
         <div className={styles.ingredients}>
           {pizza.extraoption.map((option) => (
-            <div className={styles.option}>
+            <div className={styles.option} key={option._id} >
               <input
                 type="checkbox"
                 id={option.text}
@@ -95,7 +95,7 @@ const Product = ({ pizza }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const res = await axios.get(
-    `http://localhost:3001/api/products/${params.id}`
+    `https://lapizza-virajjogani205-gmailcom.vercel.app/api/products/${params.id}`
   );
   return {
     props: {

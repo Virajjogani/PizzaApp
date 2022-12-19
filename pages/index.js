@@ -4,6 +4,7 @@ import Featured from "../components/Featured";
 import PizzaList from "../components/PizzaList";
 import styles from "../styles/Home.module.css";
 import axios from 'axios'
+import { PORTAL } from "../urls";
 export default function Home({ pizzalist }) {
   return (
     <div className={styles.container}>
@@ -20,7 +21,7 @@ export default function Home({ pizzalist }) {
 
 
 export const getServerSideProps = async () => {
-  const res = await axios.get("http://localhost:3001/api/products");
+  const res = await axios.get(PORTAL.api_url + "/api/products");
   return {
     props: {
       pizzalist: res.data

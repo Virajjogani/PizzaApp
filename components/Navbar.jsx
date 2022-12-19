@@ -13,42 +13,42 @@ const Navbar = () => {
         </div>
         <div className={styles.texts}>
           <div className={styles.text}>ORDER NOW!</div>
-          <div className={styles.text}>012 345 678</div>
+          <div className={styles.text}>+012 345 678</div>
         </div>
       </div>
       <div className={styles.item}>
         <ul className={styles.list}>
           <li className={styles.listItem}>
-            <a class="nav-link" href="/">
+            <Link className="nav-link" href="/">
               Homepage
-            </a>
+            </Link>
           </li>
           <li className={styles.listItem}>
-            <a class="nav-link" href="# ">  
+            <Link className="nav-link" href="# ">
               Products
-            </a>
+            </Link>
           </li>
           <li className={styles.listItem}>
-            <a class="nav-link" href="/">
+            <Link className="nav-link" href="/">
               Menu
-            </a>
+            </Link>
           </li>
           <Image src="/img/logo.png" alt="" width="200px" height="80px" />
           <li className={styles.listItem}>
-            <a class="nav-link" href="/">
+            <Link className="nav-link" href="/">
               Events
-            </a>
+            </Link>
           </li>
           <li className={styles.listItem}>
-            <a class="nav-link" href="/">
+            <Link className="nav-link" href="/">
               Blog
-            </a>
+            </Link>
           </li>
           <li className={styles.listItem}>
-            <a class="nav-link" href="/">
+            <Link className="nav-link" href="/">
               Contact
-            </a>
-          </li>
+            </Link>
+          </li> 
         </ul>
       </div>
       <Link href="/cart" passhref>
