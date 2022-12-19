@@ -21,11 +21,10 @@ const OrderSchema = new mongoose.Schema({
     },
     method: {
         type: Number,
-req
     }
 
 }, { timestamps: true })
 
 
 
-export default mongoose.models.Product || mongoose.model('Order', OrderSchema)
+export default mongoose.models.Order || mongoose.model('Order', OrderSchema)    

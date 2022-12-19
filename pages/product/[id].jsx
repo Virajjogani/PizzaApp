@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
+import { PORTAL } from "../../urls";
 
 const Product = ({ pizza }) => {
   const [size, setSize] = useState(0);
@@ -32,7 +33,7 @@ const Product = ({ pizza }) => {
     changePrice(difference);
   };
   const handleClick = () => {
-    dispatch(addProduct({...pizza,extras,price,quantity}));
+    dispatch(addProduct({ ...pizza, extras, price, quantity }));
   };
   return (
     <div className={styles.container}>
@@ -63,7 +64,7 @@ const Product = ({ pizza }) => {
         <h3 className={styles.choose}>Choose additional ingredients</h3>
         <div className={styles.ingredients}>
           {pizza.extraoption.map((option) => (
-            <div className={styles.option} key={option._id} >
+            <div className={styles.option} key={option._id}>
               <input
                 type="checkbox"
                 id={option.text}
@@ -94,9 +95,7 @@ const Product = ({ pizza }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(
-    `https://lapizza-virajjogani205-gmailcom.vercel.app/api/products/${params.id}`
-  );
+  const res = await axios.get(PORTAL.api_url + `/api/products/${params.id}`);
   return {
     props: {
       pizza: res.data,

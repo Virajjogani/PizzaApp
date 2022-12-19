@@ -10,10 +10,13 @@ import {
 import axios from "axios";
 import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
+import Orderdetail from "../components/Orderdetail";
+import { PORTAL } from "../urls";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [open, setOpen] = useState(false);
+  const [cash, setCash] = useState(false);
   const amount = cart.total;
   const currency = "USD";
   const style = { layout: "vertical" };
@@ -22,15 +25,15 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = axios.post("http://localhost:3000/api/orders/", data);
-
-      res.staus === 201 && router.push("/orders" + res.data._id);
-      dispatch(reset());
-    } catch (error) {
-      console.log(error);
+      const res = await axios.post(PORTAL.api_url + "/api/orders", data);
+      if (res.status === 200) {
+        dispatch(reset());
+        router.push(`/orders/${res.data._id}`);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
-
   const ButtonWrapper = ({ currency, showSpinner }) => {
     const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
 
@@ -151,7 +154,12 @@ const Cart = () => {
           </div>
           {open ? (
             <div className={styles.paymentMethods}>
-              <button className={styles.payButton}>CASH ON DELIVERY</button>
+              <button
+                className={styles.payButton}
+                onClick={() => setCash(true)}
+              >
+                CASH ON DELIVERY
+              </button>
               <PayPalScriptProvider
                 options={{
                   "client-id":
@@ -171,6 +179,7 @@ const Cart = () => {
           )}
         </div>
       </div>
+      {cash && <Orderdetail total={cart.total} createOrder={createOrder} />}
     </div>
   );
 };
