@@ -4,7 +4,7 @@ import styles from "../../styles/admin.module.css"
 import Image from "next/image";
 import { PORTAL } from '../../urls';
 import { toast } from 'react-toastify';
-function index({ order, product }) {
+function Index({ order, product }) {
 
     const [pizza, setPizza] = useState(product)
     const [orderlist, setOrderlist] = useState(order)
@@ -54,9 +54,9 @@ function index({ order, product }) {
                         </tr>
                     </tbody>
                     {pizza.map((item) => (
-                        <tbody>
+                        <tbody key={item._id}>
                             <tr className={styles.trTitle}>
-                                <td key={item._id}>
+                                <td >
                                     <Image
                                         src={item?.image}
                                         width={50}
@@ -129,4 +129,4 @@ export const getServerSideProps = async ({ params }) => {
     };
 };
 
-export default index
+export default Index
