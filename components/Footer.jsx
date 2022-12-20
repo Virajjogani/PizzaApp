@@ -19,7 +19,7 @@ const Footer = () => {
             Ground Floor Shop No. G 74 & G 75, Avadh Viceroy Varachha Road,
             Kamrej Road, Sarthana Jakat Naka,
             <br /> Surat, Gujarat 395006
-            <br /> +91 999851 99985
+            <br /> +91 99985 99985
           </p>
           <p className={styles.text}>
             G-7, Helios shopping Nr Galaxy Circle, Green City Rd, Pal Gam
