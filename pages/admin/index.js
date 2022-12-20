@@ -102,7 +102,7 @@ function Index({ order, product }) {
                                 <td>₹{order?.total}</td>
                                 <td>{order?.method === 0 ? (<span>Cash</span>) : (<span>Paid</span>)}</td>
                                 <td>{status[order?.status]}</td>
-                                {order?.status >= 2 ? (<td>
+                                {order?.status >= 3 ? (<td>
                                     <button className={styles.button} disabled onClick={() => handleStage(order?._id)}>Delivered</button>
                                 </td>) : (<td>
                                     <button className={styles.button} onClick={() => handleStage(order?._id)}>Next Stage</button>
