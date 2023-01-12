@@ -4,11 +4,13 @@ import styles from "../../styles/admin.module.css"
 import Image from "next/image";
 import { PORTAL } from '../../urls';
 import { toast } from 'react-toastify';
+import { getCookie } from 'next-cookies'
+
 function Index({ order, product }) {
 
     const [pizza, setPizza] = useState(product)
     const [orderlist, setOrderlist] = useState(order)
-    const status = ["prepraring", "on the way", "delivered"]
+    const status = ["prepraring", "on the way", "delivered", "-"]
 
 
     const handledelete = async (id) => {
@@ -100,7 +102,7 @@ function Index({ order, product }) {
                                 </td>
                                 <td>{order?.customer}</td>
                                 <td>₹{order?.total}</td>
-                                <td>{order?.method === 0 ? (<span>Cash</span>) : (<span>Paid</span>)}</td>
+                                <td>{order?.method === 0 ? (<span>Cash</span>) : (<span>Online</span>)}</td>
                                 <td>{status[order?.status]}</td>
                                 {order?.status >= 3 ? (<td>
                                     <button className={styles.button} disabled onClick={() => handleStage(order?._id)}>Delivered</button>
@@ -113,20 +115,34 @@ function Index({ order, product }) {
                     ))}
 
                 </table>
+
             </div>
         </div>
     )
 }
 
-export const getServerSideProps = async ({ params }) => {
-    const Productres = await axios.get(PORTAL.api_url + "/api/products");
-    const Orderres = await axios.get(PORTAL.api_url + "/api/orders");
-    return {
-        props: {
-            product: Productres.data,
-            order: Orderres.data,
+export const getServerSideProps = async (ctx) => {
+    const myCookie = ctx.req?.cookies || "";
+
+    if (myCookie.token !== process.env.TOKEN) {
+      return {
+        redirect: {
+          destination: "/admin/login",
+          permanent: false,
         },
-    };
+      };
+    }
+        const Productres = await axios.get(PORTAL.api_url + "/api/products");
+        const Orderres = await axios.get(PORTAL.api_url + "/api/orders");
+        return {
+            props: {
+                product: Productres.data,
+                order: Orderres.data,
+            },
+        };
+
+
+
 };
 
 export default Index
